@@ -2,12 +2,12 @@
 
 <html>
 	<head>
-		<title>Cookie 값 변경</title>
+		<title>쿠키의 삭제</title>
 	</head>
 	<body>		
 		<h3>Cookie 클래스를 사용하여 쿠키를 생성합니다.</h3>
 		<%
-			Cookie cookie = new Cookie("MyCookie", "MyCookiesValue");			
+			Cookie cookie = new Cookie("DelCookie", "This_cookie_will_be_deleted");			
 			response.addCookie(cookie);			
 		%>
 		<h4>쿠키 생성이 완료되었습니다.</h4><hr/>
@@ -15,8 +15,8 @@
 		<h4>쿠키의 이름 : <%=cookie.getName() %> <br/>
 		쿠키의 값 : <%=cookie.getValue() %> <br/></h4>
 		
-		<form action="CookieValueChg.jsp" method="post">
-			<input type="submit" value="쿠키 변경 페이지">
+		<form action="CookieDelPerform.jsp" method="post">
+			<input type="submit" value="쿠키 삭제 페이지">
 		</form>
 	</body>
 </html>

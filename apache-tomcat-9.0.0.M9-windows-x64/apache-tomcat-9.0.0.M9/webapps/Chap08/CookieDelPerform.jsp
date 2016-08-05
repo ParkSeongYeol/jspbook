@@ -2,33 +2,33 @@
 
 <html>
 	<head>
-		<title>Cookie 값 변경</title>
+		<title>쿠키의 삭제</title>
 	</head>
 	<body>
-		<h3>생성된 "MyCookie" 쿠키의 값을 확인 합니다.</h3>
+		<h3>생성된 "DelCookie" 쿠키의 값을 확인 합니다.</h3>
 		<%
 			Cookie[] cookies = request.getCookies();
 			if (cookies != null && cookies.length > 0){
 				for (int i=0 ; i < cookies.length ; i++){
-					if (cookies[i].getName().equals("MyCookie")){
+					if (cookies[i].getName().equals("DelCookie")){
 		%>
 						<h4>
 						쿠키의 이름 : <%=cookies[i].getName() %> <br/>
 						쿠키의 값 : <%=cookies[i].getValue() %> <br/>
 						</h4><hr/>
-						<h3>"MyCookie" 쿠키의 값을 변경합니다.</h3>
+						<h3>"DelCookie" 쿠키를 삭제합니다.</h3>
 		<%
-						cookies[i].setValue("MyCookie's_value_was_changed!");
+						cookies[i].setMaxAge(0);
 						response.addCookie(cookies[i]);
 		%>
-						<h4>변경이 완료되었습니다.</h4>
+						<h4>삭제가 완료되었습니다.</h4>
 		<%						
 					}
 				}
 			}			
 		%>
-		<form action="CookieValueChk.jsp" method="post">
-			<input type="submit" value="쿠키 변경 확인">
+		<form action="CookieDelChk.jsp" method="post">
+			<input type="submit" value="쿠키 삭제 확인">
 		</form>		
 	</body>
 </html>
